@@ -12,5 +12,7 @@ module dam.senseigithub {
     opens dam.senseigithub.controller to javafx.fxml;
     exports dam.senseigithub.controller.clients;
     opens dam.senseigithub.controller.clients to javafx.fxml;
+    exports dam.senseigithub.controller.designs;
+    opens dam.senseigithub.controller.designs to javafx.fxml;
 }
 

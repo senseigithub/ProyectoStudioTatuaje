@@ -5,14 +5,15 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 
 public class MainController {
-    @FXML
-    private void switchToAddUser() throws IOException {
-        App.setRoot("AddUser");
-    }
 
     @FXML
     private void switchToClientList() throws IOException {
         App.setRoot("ClientList");
+    }
+
+    @FXML
+    private void switchToAddUser() throws IOException {
+        App.setRoot("AddClient");
     }
 
     @FXML
@@ -21,7 +22,7 @@ public class MainController {
     }
 
     @FXML
-    private void switchToModifyClient() throws IOException {
-        App.setRoot("ModifyClient");
+    public static void backToMainView() throws IOException {
+        App.setRoot("mainView");
     }
 }

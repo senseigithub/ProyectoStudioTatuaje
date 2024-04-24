@@ -9,16 +9,15 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.senseigithub.controller.clients.AddUserController">
     <children>
-        <Label text="Borrar cliente">
-            <font>
-                <Font name="Cambria" size="16.0" />
-            </font></Label>
-        <TextField promptText="DNI" />
-        <TextField promptText="Nombre" />
-        <Button mnemonicParsing="false" text="Borrar">
+        <Label text="Añadir cliente">
          <font>
-            <Font name="Cambria" size="12.0" />
-         </font></Button>
+            <Font name="Cambria" size="16.0" />
+         </font></Label>
+      <TextField promptText="DNI" />
+      <TextField promptText="Nombre" />
+      <TextField promptText="Email" />
+      <TextField promptText="Teléfono" />
+      <Button mnemonicParsing="false" onAction="#backToMainView" text="Agregar" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

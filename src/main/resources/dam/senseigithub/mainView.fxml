@@ -30,10 +30,9 @@
                   </ImageView>
                   <SplitMenuButton mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Clientes" translateX="80.0">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Lista de clientes" />
-                      <MenuItem mnemonicParsing="false" text="Añadir cliente" />
-                      <MenuItem mnemonicParsing="false" text="Borrar cliente" />
-                        <MenuItem mnemonicParsing="false" text="Modificar datos del cliente" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToClientList" text="Lista de clientes" />
+                      <MenuItem mnemonicParsing="false" onAction="#switchToAddUser" text="Añadir cliente" />
+                      <MenuItem mnemonicParsing="false" onAction="#switchToDeleteClient" text="Borrar cliente" />
                     </items>
                      <font>
                         <Font name="Cambria" size="16.0" />
@@ -43,7 +42,6 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="Añadir diseño" />
                         <MenuItem mnemonicParsing="false" text="Borrar diseño" />
-                        <MenuItem mnemonicParsing="false" text="Modificar diseño" />
                      </items>
                      <font>
                         <Font name="Cambria" size="16.0" />
@@ -60,7 +58,7 @@
                         <Font name="Cambria" size="16.0" />
                      </font>
                   </SplitMenuButton>
-                  <TextField prefHeight="36.0" prefWidth="261.0" promptText="Buscar" translateX="320.0" />
+                  <TextField prefHeight="36.0" prefWidth="261.0" promptText="Buscar" translateX="180.0" />
               </items>
             </ToolBar>
          </top>
