@@ -4,11 +4,13 @@ module dam.senseigithub {
     requires java.xml.bind;
     requires java.sql;
 
-    opens senseigithub to javafx.fxml;
-    opens senseigithub.model.connection to java.xml.bind;
+    opens dam.senseigithub to javafx.fxml;
+    opens dam.senseigithub.model.connection to java.xml.bind;
 
     exports dam.senseigithub;
     exports dam.senseigithub.controller;
-    opens senseigithub.controller to javafx.fxml;
+    opens dam.senseigithub.controller to javafx.fxml;
+    exports dam.senseigithub.controller.clients;
+    opens dam.senseigithub.controller.clients to javafx.fxml;
 }
 
