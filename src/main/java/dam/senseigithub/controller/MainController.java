@@ -22,6 +22,11 @@ public class MainController {
     }
 
     @FXML
+    private void switchToAddDesign() throws IOException {
+        App.setRoot("AddDesign");
+    }
+
+    @FXML
     public static void backToMainView() throws IOException {
         App.setRoot("mainView");
     }
