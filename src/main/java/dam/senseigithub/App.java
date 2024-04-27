@@ -1,9 +1,11 @@
 package dam.senseigithub;
 
+import dam.senseigithub.controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +31,16 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    public static void openModal(String fxml, String titulo, MainController controller) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle(titulo);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
     }
 
     public static void main(String[] args) {
