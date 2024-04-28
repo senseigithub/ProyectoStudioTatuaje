@@ -13,9 +13,9 @@
             <font>
                 <Font name="Cambria" size="16.0" />
             </font></Label>
-        <TextField promptText="DNI" />
-        <TextField promptText="Nombre" />
-        <Button mnemonicParsing="false" onAction="#backToMainView" text="Borrar">
+        <TextField fx:id="dni" promptText="DNI" />
+        <TextField fx:id="name" promptText="Nombre" />
+        <Button fx:id="deleteClient" mnemonicParsing="false" onAction="#deleteClient" text="Borrar">
          <font>
             <Font name="Cambria" size="12.0" />
          </font></Button>

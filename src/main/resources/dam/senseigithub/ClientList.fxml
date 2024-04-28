@@ -40,7 +40,7 @@
                         </SplitMenuButton>
                         <SplitMenuButton layoutX="100.0" layoutY="45.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Diseños" translateX="100.0">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Añadir diseño" />
+                                <MenuItem mnemonicParsing="false" onAction="#switchToAddDesign" text="Añadir diseño" />
                                 <MenuItem mnemonicParsing="false" text="Borrar diseño" />
                             </items>
                             <font>
@@ -63,12 +63,12 @@
                 </ToolBar>
             </top>
          <bottom>
-            <TableView editable="true" prefHeight="411.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="clientTableView" editable="true" prefHeight="411.0" prefWidth="960.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="DNIE" />
-                <TableColumn prefWidth="75.0" text="Nombre" />
-                  <TableColumn prefWidth="75.0" text="Email" />
-                  <TableColumn prefWidth="75.0" text="Teléfono" />
+                <TableColumn fx:id="dniColumn" prefWidth="75.0" text="DNIE" />
+                <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="emailColumn" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Teléfono" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

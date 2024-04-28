@@ -30,8 +30,5 @@ public class MainController {
         App.setRoot("AddDesign");
     }
 
-    @FXML
-    public static void backToMainView() throws IOException {
-        App.setRoot("mainView");
-    }
+
 }
