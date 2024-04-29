@@ -3,6 +3,7 @@ package dam.senseigithub.controller.clients;
 import dam.senseigithub.App;
 import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.entity.Client;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -36,11 +37,12 @@ public class ClientListController {
     @FXML
     public void initialize() {
         System.out.println("Inicializando ClientListController...");
+        clientTableView.setEditable(true);
         // Configurar las columnas de la TableView para que obtengan los datos de las propiedades de la clase Client
-        dniColumn.setCellValueFactory(new PropertyValueFactory<>("dnie"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        dniColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getDnie()));
+        nameColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getName()));
+        emailColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getEmail()));
+        phoneColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getPhone()));
 
         // Obtener la lista de clientes del DAO
         List<Client> clients = clientDAO.getAllClients();
