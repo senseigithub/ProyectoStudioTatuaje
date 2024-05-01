@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="366.0" prefWidth="451.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.senseigithub.controller.designs.AddDesignController">
+    <children>
+        <Label text="Agregar un diseño">
+         <font>
+            <Font name="Cambria" size="16.0" />
+         </font></Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Nombre:    ">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <TextField fx:id="name" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Tamaño:    ">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font></Label>
+            <TextField fx:id="size" />
+         </children>
+      </HBox>
+      <HBox prefHeight="150.0" prefWidth="427.0">
+         <children>
+            <ImageView fx:id="preview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+         </children>
+      </HBox>
+      <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addDesign" text="Selecciona el diseño..." textAlignment="CENTER">
+               <font>
+                  <Font name="Cambria" size="13.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Subir diseño" textAlignment="CENTER" translateX="50.0">
+               <font>
+                  <Font name="Cambria" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
