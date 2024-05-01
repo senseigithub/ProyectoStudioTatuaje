@@ -2,9 +2,6 @@ package dam.senseigithub.controller;
 
 import dam.senseigithub.App;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -29,6 +26,4 @@ public class MainController {
     private void switchToAddDesign() throws IOException {
         App.setRoot("AddDesign");
     }
-
-
 }

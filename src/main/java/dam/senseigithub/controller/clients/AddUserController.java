@@ -22,29 +22,21 @@ public class AddUserController {
     @FXML
     private TextField phone;
 
-    // Instancia del DAO ClientDAO
     private ClientDAO clientDAO = new ClientDAO();
 
 
     @FXML
     private void addClient() throws IOException {
-        // Obtener los datos del cliente desde la vista
         String dni = this.dni.getText();
         String name = this.name.getText();
         String email = this.email.getText();
         String phone = this.phone.getText();
-
-        // Crear una nueva instancia de Cliente con los datos ingresados por el usuario
         Client client = new Client();
         client.setDnie(dni);
         client.setName(name);
         client.setEmail(email);
         client.setPhone(phone);
-
-        // Llamar al método addClient del DAO para agregar el cliente a la base de datos
         clientDAO.addClient(client);
-
-        // Limpiar los campos del formulario después de agregar el cliente
         clearFields();
         App.setRoot("mainView");
     }

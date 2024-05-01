@@ -1,0 +1,12 @@
+
+o
+java:S3008"TRename this field "_instance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ Åùÿÿÿÿ
+`
+java:S1124
+"EReorder the modifiers to comply with the Java Language Specification.(¬»˜ùÿÿÿÿ
+<
+java:S3010"!Remove this assignment of "conn".(æ‰¢Ùüÿÿÿÿ
+<
+java:S3010"!Remove this assignment of "conn".(€×³›ÿÿÿÿÿ
+R
+java:S1905"7Remove this unnecessary cast to "ConnectionProperties".(ä¼úşÿÿÿÿ

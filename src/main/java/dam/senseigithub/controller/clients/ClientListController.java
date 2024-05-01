@@ -7,10 +7,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,19 +36,12 @@ public class ClientListController {
     public void initialize() {
         System.out.println("Inicializando ClientListController...");
         clientTableView.setEditable(true);
-        // Configurar las columnas de la TableView para que obtengan los datos de las propiedades de la clase Client
         dniColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getDnie()));
         nameColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getName()));
         emailColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getEmail()));
         phoneColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getPhone()));
-
-        // Obtener la lista de clientes del DAO
         List<Client> clients = clientDAO.getAllClients();
-
-        // Convertir la lista de clientes a un ObservableList (necesario para la TableView)
         ObservableList<Client> observableClients = FXCollections.observableArrayList(clients);
-
-        // Asignar los datos a la TableView
         clientTableView.setItems(observableClients);
     }
 
