@@ -1,9 +1,5 @@
 
-	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ğ…½òò1J$8c8ace82-f2a4-4198-9fcf-1c9127d52471
-	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ò…½òò1J$e69b8498-b103-430e-a1bc-ba4cd5cb80de
-É
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•‘İŸüÿÿÿÿ8â…½òò1J$b55df431-9de5-49d0-9ef2-471ae329202b
-‡
-java:S21471"DCombine this catch with the one at line 47, which has the same body.(ï­£Ä8é…½òò1J$88e7a4c8-dd86-4d63-9d44-327827e97d62
+‰
+java:S11929"FDefine a constant instead of duplicating this literal "Error" 3 times.(˜Çöú8ş¿şÄó1J$d3dfee67-b1ab-4b55-8caa-0c4dd3d7924a
 
-java:S2674."JCheck the return value of the "read" call to see how many bytes were read.(¬­å²8ë…½òò1J$54fef5a8-778b-4fc4-b8e9-3ee2910624ae
+java:S2674+"JCheck the return value of the "read" call to see how many bytes were read.(¬­å²8´–ıÄó1J$ae03693b-aeff-4db2-9b49-54aeeb33911e

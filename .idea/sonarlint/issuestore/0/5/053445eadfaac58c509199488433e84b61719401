@@ -1,3 +1,7 @@
 
-…
-java:S2094"BRemove this empty class, write its code or make it an "interface".(ãîØ8ôœ”¦ó1J$6b9b4b8c-0368-441f-8ad0-a6ea656b06dc
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(—¹¿ûÿÿÿÿ8íİÑÃó1J$c87594cd-6726-4b37-90a5-586a6c5d0baf
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(›œáõ8ªèåÃó1J$8dda7579-dc85-4870-9535-58a21b5f0e08
+m
+java:S1068"*Remove this unused "DELETE" private field.(›œáõ8­èåÃó1J$8b571fb5-8201-4ea3-819d-23bd2f51021d

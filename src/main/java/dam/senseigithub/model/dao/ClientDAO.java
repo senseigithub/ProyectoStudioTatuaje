@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ClientDAO {
     private final static String INSERT = "INSERT INTO cliente (Dnie, Nombre, Email, Telefono) VALUES (?, ?, ?, ?)";
-    private final static String UPDATE = "UPDATE cliente SET Nombre=?, Email=?, Telefono=? WHERE Id_Cliente=?";
+    private final static String UPDATE = "UPDATE cliente SET Dnie=?, Nombre=?, Email=?, Telefono=? WHERE Id_Cliente=?";
     private final static String FINDALL = "SELECT * FROM cliente";
     private final static String FINDBYID = "SELECT * FROM cliente WHERE Id_Cliente=?";
     private final static String DELETE = "DELETE FROM cliente WHERE Dnie=? AND Nombre=?";
@@ -40,10 +40,10 @@ public class ClientDAO {
     public void updateClient(Client client) {
         if (client == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
-            pst.setString(1, client.getName());
-            pst.setString(2, client.getEmail());
-            pst.setString(3, client.getPhone());
-            pst.setInt(4, client.getIdClient());
+            pst.setString(1, client.getDnie());
+            pst.setString(2, client.getName());
+            pst.setString(3, client.getEmail());
+            pst.setString(4, client.getPhone());
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

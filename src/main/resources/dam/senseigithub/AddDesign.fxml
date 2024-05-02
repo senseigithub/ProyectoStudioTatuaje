@@ -40,11 +40,11 @@
       </HBox>
       <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addDesign" text="Selecciona el diseño..." textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#selectImage" text="Selecciona el diseño..." textAlignment="CENTER">
                <font>
                   <Font name="Cambria" size="13.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Subir diseño" textAlignment="CENTER" translateX="50.0">
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#uploadImage" text="Subir diseño" textAlignment="CENTER" translateX="50.0">
                <font>
                   <Font name="Cambria" size="13.0" />
                </font>
