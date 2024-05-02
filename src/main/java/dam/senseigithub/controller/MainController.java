@@ -4,9 +4,12 @@ import dam.senseigithub.App;
 import dam.senseigithub.model.dao.DesignDAO;
 import dam.senseigithub.model.entity.Design;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -45,6 +48,13 @@ public class MainController {
                 // Agrega el ImageView al GridPane
                 imageGridPane.add(imageView, column, row);
 
+                // Agregar evento de doble clic a cada ImageView
+                imageView.setOnMouseClicked(event -> {
+                    if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                        handleDoubleClick(design);
+                    }
+                });
+
                 // Avanza a la siguiente fila si se alcanza el límite de columnas
                 column++;
                 if (column == 3) {
@@ -57,6 +67,54 @@ public class MainController {
             // Manejar la excepción según tus necesidades
         }
     }
+
+    private void refreshDesignList() {
+        try {
+            List<Design> designs = designDAO.getAllDesigns();
+            imageGridPane.getChildren().clear(); // Limpiar el GridPane
+            int column = 0;
+            int row = 0;
+            for (Design design : designs) {
+                Image image = new Image(design.getImageInputStream());
+                ImageView imageView = new ImageView(image);
+                imageView.setFitWidth(230);
+                imageView.setFitHeight(200);
+                imageView.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2) {
+                        handleDoubleClick(design);
+                    }
+                });
+                imageGridPane.add(imageView, column, row);
+                // Avanzar a la siguiente fila si se alcanza el límite de columnas
+                column++;
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleDoubleClick(Design design) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmación");
+        alert.setHeaderText("¿Seguro que quieres borrar este diseño?");
+        alert.setContentText("Esta acción no se puede deshacer.");
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    designDAO.deleteDesign(design);
+                    refreshDesignList(); // Actualizar la lista de diseños y refrescar la vista
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 
 
     @FXML

@@ -28,6 +28,13 @@ public class DesignDAO {
         }
     }
 
+    public void deleteDesign(Design design) throws SQLException {
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
+            pst.setString(1, design.getName());
+            pst.executeUpdate();
+        }
+    }
+
     public List<Design> getAllDesigns() throws SQLException {
         List<Design> designs = new ArrayList<>();
         try (Statement stmt = ConnectionMariaDB.getConnection().createStatement()) {

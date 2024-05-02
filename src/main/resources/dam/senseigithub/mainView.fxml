@@ -2,19 +2,17 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ScrollPane?>
 <VBox alignment="CENTER" prefHeight="650.0" prefWidth="1000.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dam.senseigithub.controller.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -42,7 +40,6 @@
                   <SplitMenuButton layoutX="100.0" layoutY="45.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Diseños" translateX="100.0">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#switchToAddDesign" text="Añadir diseño" />
-                        <MenuItem mnemonicParsing="false" text="Borrar diseño" />
                      </items>
                      <font>
                         <Font name="Cambria" size="16.0" />
@@ -64,9 +61,9 @@
             </ToolBar>
          </top>
          <center>
-             <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true">
+             <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true">
                  <content>
-                     <GridPane fx:id="imageGridPane"/>
+                     <GridPane fx:id="imageGridPane" />
                  </content>
              </ScrollPane>
          </center>
