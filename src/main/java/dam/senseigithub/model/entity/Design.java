@@ -1,5 +1,6 @@
 package dam.senseigithub.model.entity;
 
+import java.io.InputStream;
 import java.util.Arrays;
 
 public class Design {
@@ -7,6 +8,7 @@ public class Design {
     private String name;
     private byte[] imagen;
     private float size;
+    private InputStream imageInputStream;
 
     public Design(int idDesign, String name, byte[] imagen, float size) {
         this.idDesign = idDesign;
@@ -49,6 +51,14 @@ public class Design {
 
     public void setSize(float size) {
         this.size = size;
+    }
+
+    public InputStream getImageInputStream() {
+        return imageInputStream;
+    }
+
+    public void setImageInputStream(InputStream imageInputStream) {
+        this.imageInputStream = imageInputStream;
     }
 
     @Override
