@@ -1,12 +1,11 @@
 package dam.senseigithub.model.dao;
 
 import dam.senseigithub.model.connection.ConnectionMariaDB;
+import dam.senseigithub.model.entity.Appointment;
 import dam.senseigithub.model.entity.Client;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,11 +126,40 @@ public class ClientDAO {
                 client.setName(rs.getString("Nombre"));
                 client.setEmail(rs.getString("Email"));
                 client.setPhone(rs.getString("Telefono"));
+
+                // Recuperar citas para este cliente
+                List<Appointment> appointments = getAppointmentsForClient(client.getIdClient());
+                client.setAppointments(appointments);
+
                 clients.add(client);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return clients;
+    }
+
+
+    private List<Appointment> getAppointmentsForClient(int clientId) {
+        List<Appointment> appointments = new ArrayList<>();
+        try (Connection connection = ConnectionMariaDB.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM Cita WHERE Id_Cliente = ?");
+        ) {
+            statement.setInt(1, clientId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int appointmentId = resultSet.getInt("Id_Cita");
+                LocalDateTime appointmentDate = resultSet.getTimestamp("Fecha").toLocalDateTime();
+
+                Appointment appointment = new Appointment();
+                appointment.setIdAppointment(appointmentId);
+                appointment.setDate(appointmentDate);
+
+                appointments.add(appointment);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointments;
     }
 }

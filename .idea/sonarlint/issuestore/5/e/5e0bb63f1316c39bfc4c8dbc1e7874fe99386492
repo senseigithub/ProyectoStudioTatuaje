@@ -1,3 +1,13 @@
 
+œ
+java:S1192"YUse already-defined constant 'SELECT_BY_CLIENT_ID' instead of duplicating its value here.(ìíãº8é°»¢õ1J$7878e981-7b63-4a21-94c9-ac5b76f4d288
 
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8¡ö¿îô1J$b7b5edad-e9f5-422f-9c0e-d7df57b2afc6
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8Óß€™õ1J$95012568-8ce5-4b69-a99e-12af8846560a
+b
+java:S6905"Don't use the query "SELECT *".(ìíãº8×ß€™õ1J$e9c3c4d1-70fb-4634-a7a5-9ee8b73ee46b
+ƒ
+java:S1068";Remove this unused "DELETE_BY_DNIE_AND_DATE" private field.(„»‘½úÿÿÿÿ8Úß€™õ1J$21172e8f-4f4b-4afd-8480-e55aa83db6e5
+x
+java:S1068"0Remove this unused "SELECT_BY_ID" private field.(Î‰üùøÿÿÿÿ8Úß€™õ1J$1272468e-0ea3-4ebc-bbc7-49798505d82e
+
+java:S1068"7Remove this unused "SELECT_BY_CLIENT_ID" private field.(Ç…äøÿÿÿÿ8€±»¢õ1J$d71bd60c-efab-4597-bdbe-29c785843fb1

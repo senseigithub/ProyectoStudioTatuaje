@@ -13,8 +13,6 @@ d
 4src/main/java/dam/senseigithub/utils/XMLManager.java,7\2\72af5bb6e6b1f5de0005195e01e313df0ae59259
 y
 Isrc/main/java/dam/senseigithub/model/connection/ConnectionProperties.java,8\d\8d99c08e43c195f398c63e945604179f090ac10e
-}
-Msrc/main/java/dam/senseigithub/controller/designs/DeleteDesignController.java,c\f\cfe0225051fc85486275e2b844371a970c4e04e4
 >
 connection.xml,4\8\489ea6a573b060a464fe7adb9a64339fe6d7f430
 m
@@ -50,5 +48,7 @@ g
 7src/main/java/dam/senseigithub/model/dao/DesignDAO.java,0\5\053445eadfaac58c509199488433e84b61719401
 „
 Tsrc/main/java/dam/senseigithub/controller/appointments/AddAppointmentController.java,d\4\d49a7164d895abd10ef4180e789bbe4509d5f7ea
-‚
-Rsrc/main/java/dam/senseigithub/controller/appointments/CalendarViewController.java,1\9\19cd98222d57423d4d9bb883b904bfe2e4e84b65
+‡
+Wsrc/main/java/dam/senseigithub/controller/appointments/DeleteAppointmentController.java,f\6\f60ca3f0a9071a4d885ac2b629b36db364bc1b59
+h
+8src/main/java/dam/senseigithub/test/TestAppointment.java,3\f\3f8f4f0ff50d184d418aba34544d142213074d25
