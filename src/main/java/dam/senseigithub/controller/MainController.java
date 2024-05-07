@@ -136,4 +136,14 @@ public class MainController {
     private void switchToAddDesign() throws IOException {
         App.setRoot("AddDesign");
     }
+
+    @FXML
+    private void switchToAddAppointment() throws IOException {
+        App.setRoot("AddAppointment");
+    }
+
+    @FXML
+    private void switchToCalendar() throws IOException {
+        App.setRoot("CalendarView");
+    }
 }

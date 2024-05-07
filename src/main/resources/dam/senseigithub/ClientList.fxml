@@ -41,7 +41,6 @@
                         <SplitMenuButton layoutX="100.0" layoutY="45.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Diseños" translateX="100.0">
                             <items>
                                 <MenuItem mnemonicParsing="false" onAction="#switchToAddDesign" text="Añadir diseño" />
-                                <MenuItem mnemonicParsing="false" text="Borrar diseño" />
                             </items>
                             <font>
                                 <Font name="Cambria" size="16.0" />

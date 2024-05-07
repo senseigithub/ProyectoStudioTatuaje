@@ -16,6 +16,9 @@ public class Appointment {
     public Appointment() {
     }
 
+    public void setDate(String date) {
+        this.date = LocalDateTime.parse(date);
+    }
     public int getIdAppointment() {
         return idAppointment;
     }
