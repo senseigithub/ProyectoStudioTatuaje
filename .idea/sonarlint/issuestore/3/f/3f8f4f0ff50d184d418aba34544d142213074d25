@@ -1,10 +1,4 @@
 
-w
-java:S2209"5Change this instance-reference to a static reference.(›ŒÜH8ÏËÁ¢õ1J$2ba2e664-4703-420b-bf3d-66103f4f3de9
-l	java:S106"+Replace this use of System.out by a logger.(Ê”Ý48ß Á¢õ1J$7a18c76b-46fb-4d1b-8e8b-390f3e62f502
-l	java:S106"+Replace this use of System.out by a logger.(Æ°ÒX8à Á¢õ1J$6e2da4c4-6193-4d87-aaf3-90d4d2f08155
-m	java:S106"+Replace this use of System.out by a logger.(Œ±›˜8á Á¢õ1J$add11fbe-f6b6-4201-bd44-bbe2ea23bea9
-^
-java:S1128"ARemove this unused import 'dam.senseigithub.model.dao.ClientDAO'.(âÚÛª8ÓöÁ¢õ1
-^
-java:S1128"ARemove this unused import 'dam.senseigithub.model.entity.Client'.(’²™û8ÓöÁ¢õ1
+l	java:S106"+Replace this use of System.out by a logger.(Ê”Ý48ß Á¢õ1J$3e405f14-6ca6-4b43-9c36-3ea9b029e849
+l	java:S106"+Replace this use of System.out by a logger.(Æ°ÒX8à Á¢õ1J$1c07e78b-7de9-4ef0-bf95-1e46ee5ffbdf
+m	java:S106"+Replace this use of System.out by a logger.(Œ±›˜8á Á¢õ1J$7d7725c7-00de-465f-b30f-33ddc9769d23

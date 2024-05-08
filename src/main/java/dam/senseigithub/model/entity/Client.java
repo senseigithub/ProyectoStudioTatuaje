@@ -1,22 +1,11 @@
 package dam.senseigithub.model.entity;
 
-import java.util.List;
-
 public class Client {
     private int idClient;
     private String dnie;
     private String name;
     private String email;
     private String phone;
-    private List<Appointment> appointments;
-
-    public List<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
-    }
 
     public Client(int idClient, String dnie, String name, String email, String phone) {
         this.idClient = idClient;

@@ -1,3 +1,24 @@
 
-‰
-java:S1128"FRemove this unused import 'dam.senseigithub.model.dao.AppointmentDAO'.(àŸ¶’8ûñ£õ1J$a1bc7ed1-3802-457b-b919-72efc2a062ab
+G	java:S1060"+Replace this use of System.out by a logger.(’–‰ƒ8Ÿ¿Ê¾õ1
+{
+java:S1128"^Remove this unused import 'dam.senseigithub.controller.appointments.AddAppointmentController'.(û†ÕÊ8¢¿Ê¾õ1
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8¢¿Ê¾õ1
+M
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8£¿Ê¾õ1
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8£¿Ê¾õ1
+S
+java:S1128"7Remove this unused import 'javafx.scene.control.Alert'.(ÊÇê:8£¿Ê¾õ1
+Y
+java:S1128"<Remove this unused import 'javafx.scene.control.ButtonType'.(úêÿ»8£¿Ê¾õ1
+]
+java:S1128";Remove this unused import 'javafx.scene.input.MouseButton'.(®Ñ÷“ıÿÿÿÿ8£¿Ê¾õ1
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8£¿Ê¾õ1
+T
+java:S1128"2Remove this unused import 'javafx.stage.Modality'.(£†üĞüÿÿÿÿ8£¿Ê¾õ1
+Q
+java:S1128"/Remove this unused import 'javafx.stage.Stage'.(æÄ¸²úÿÿÿÿ8£¿Ê¾õ1
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8£¿Ê¾õ1

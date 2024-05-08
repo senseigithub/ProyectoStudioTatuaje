@@ -1,20 +1,28 @@
 package dam.senseigithub.controller.clients;
 
 import dam.senseigithub.App;
-import dam.senseigithub.model.dao.AppointmentDAO;
+import dam.senseigithub.controller.appointments.AddAppointmentController;
 import dam.senseigithub.model.dao.ClientDAO;
-import dam.senseigithub.model.entity.Appointment;
 import dam.senseigithub.model.entity.Client;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class ClientListController {
 
@@ -33,42 +41,22 @@ public class ClientListController {
     @FXML
     private TableColumn<Client, String> phoneColumn;
 
-    @FXML
-    private TableColumn<Client, String> appointmentColumn;
-
     private ClientDAO clientDAO = new ClientDAO();
 
     @FXML
     public void initialize() {
+        System.out.println("Inicializando ClientListController...");
         clientTableView.setEditable(true);
         dniColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getDnie()));
         nameColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getName()));
         emailColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getEmail()));
         phoneColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getPhone()));
-        appointmentColumn.setCellValueFactory(client -> new SimpleStringProperty(getAppointmentsText(client.getValue())));
-        loadClients();
-    }
-
-    private void loadClients() {
         List<Client> clients = clientDAO.getAllClients();
         ObservableList<Client> observableClients = FXCollections.observableArrayList(clients);
         clientTableView.setItems(observableClients);
     }
 
-    private String getAppointmentsText(Client client) {
-        StringBuilder appointmentsText = new StringBuilder();
-        List<Appointment> appointments = client.getAppointments();
-        if (appointments != null && !appointments.isEmpty()) {
-            for (Appointment appointment : appointments) {
-                appointmentsText.append(appointment.getDate()).append(", ");
-            }
-            appointmentsText.delete(appointmentsText.length() - 2, appointmentsText.length());
-        } else {
-            appointmentsText.append("No tiene citas");
-        }
-        return appointmentsText.toString();
-    }
-
+    // Métodos para cambiar de vista
     @FXML
     private void backToMainView() throws IOException {
         App.setRoot("mainView");
