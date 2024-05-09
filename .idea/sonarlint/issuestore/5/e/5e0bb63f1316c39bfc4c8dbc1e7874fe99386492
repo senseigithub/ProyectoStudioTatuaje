@@ -1,3 +1,9 @@
 
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8˜¼™Æõ1J$9409e0d8-f63f-4468-81c2-7de0e58c6f7b
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8Ô¿Ê¾õ1
+java:S6905("Don't use the query "SELECT *".(©ĞƒÔùÿÿÿÿ8¥¼™Æõ1J$aa69e6a8-fcd9-4192-9e83-d5c0e9ff6a15
+x
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÒĞéÆõ1J$993e6f15-87e3-48db-bb75-811a1b78705c
+
+java:S1068"7Remove this unused "SELECT_BY_CLIENT_ID" private field.(ÂëË¹úÿÿÿÿ8äëÆõ1J$ae1e4993-2b85-44d1-8730-9e3c2930e203

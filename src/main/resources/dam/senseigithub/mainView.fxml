@@ -47,10 +47,8 @@
                   </SplitMenuButton>
                   <SplitMenuButton layoutX="240.0" layoutY="41.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Citas" translateX="120.0">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#switchToCalendar" text="Calendario de citas" />
                         <MenuItem mnemonicParsing="false" onAction="#switchToAddAppointment" text="Añadir cita" />
-                        <MenuItem mnemonicParsing="false" text="Borrar cita" />
-                        <MenuItem mnemonicParsing="false" text="Modificar cita" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToDeleteAppointment" text="Borrar cita" />
                      </items>
                      <font>
                         <Font name="Cambria" size="16.0" />

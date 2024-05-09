@@ -1,5 +1,5 @@
 
-€
-java:S1128	"8Remove this unused import 'javafx.scene.control.Button'.(Ë Í‹øÿÿÿÿ8½˜£¾õ1J$d21b3d26-3b0d-432b-a60f-11ebdf48f6fa
-s
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¾˜£¾õ1J$876ec60b-e191-4a6b-8a72-9c1fa3bb47f5
+”
+java:S11921"LDefine a constant instead of duplicating this literal "Advertencia" 4 times.(ÑÊì™şÿÿÿÿ8ËÆõ1J$6ad3ad19-fe47-4ea8-88f2-98434bb518fa
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8»Ó‚Æõ1

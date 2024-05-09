@@ -143,7 +143,7 @@ public class MainController {
     }
 
     @FXML
-    private void switchToCalendar() throws IOException {
-        App.setRoot("CalendarView");
+    private void switchToDeleteAppointment() throws IOException {
+        App.setRoot("DeleteAppointment");
     }
 }

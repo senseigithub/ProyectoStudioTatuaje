@@ -2,7 +2,9 @@ package dam.senseigithub.controller.clients;
 
 import dam.senseigithub.App;
 import dam.senseigithub.controller.appointments.AddAppointmentController;
+import dam.senseigithub.model.dao.AppointmentDAO;
 import dam.senseigithub.model.dao.ClientDAO;
+import dam.senseigithub.model.entity.Appointment;
 import dam.senseigithub.model.entity.Client;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -11,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -42,10 +41,10 @@ public class ClientListController {
     private TableColumn<Client, String> phoneColumn;
 
     private ClientDAO clientDAO = new ClientDAO();
+    private AppointmentDAO appointmentDAO = new AppointmentDAO();
 
     @FXML
     public void initialize() {
-        System.out.println("Inicializando ClientListController...");
         clientTableView.setEditable(true);
         dniColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getDnie()));
         nameColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getName()));
@@ -54,8 +53,45 @@ public class ClientListController {
         List<Client> clients = clientDAO.getAllClients();
         ObservableList<Client> observableClients = FXCollections.observableArrayList(clients);
         clientTableView.setItems(observableClients);
+
+        // Agregar un manejador para el evento de clic derecho en la tabla
+        clientTableView.setRowFactory(tableView -> {
+            final TableRow<Client> row = new TableRow<>();
+            final ContextMenu contextMenu = new ContextMenu();
+            final MenuItem viewAppointmentsItem = new MenuItem("Ver Citas");
+            viewAppointmentsItem.setOnAction(event -> {
+                Client client = row.getItem();
+                if (client != null) {
+                    showAppointmentsDialog(client);
+                }
+            });
+            contextMenu.getItems().add(viewAppointmentsItem);
+            // Solo muestra el menú contextual cuando se hace clic derecho en una fila
+            row.contextMenuProperty().bind(
+                    javafx.beans.binding.Bindings.when(row.emptyProperty())
+                            .then((ContextMenu) null)
+                            .otherwise(contextMenu)
+            );
+            return row;
+        });
     }
 
+    private void showAppointmentsDialog(Client client) {
+        List<Appointment> appointments = appointmentDAO.getAppointmentsByClientId(client.getIdClient());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Citas de " + client.getName());
+        alert.setHeaderText(null);
+        if (appointments.isEmpty()) {
+            alert.setContentText("Este cliente no tiene citas.");
+        } else {
+            StringBuilder content = new StringBuilder("Citas de " + client.getName() + ":\n\n");
+            for (Appointment appointment : appointments) {
+                content.append("- ").append(appointment.getDate()).append("\n");
+            }
+            alert.setContentText(content.toString());
+        }
+        alert.showAndWait();
+    }
     // Métodos para cambiar de vista
     @FXML
     private void backToMainView() throws IOException {
