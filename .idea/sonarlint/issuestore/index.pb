@@ -30,15 +30,11 @@ g
 l
 <src/main/java/dam/senseigithub/model/dao/AppointmentDAO.java,5\e\5e0bb63f1316c39bfc4c8dbc1e7874fe99386492
 g
-7src/main/java/dam/senseigithub/model/entity/Tattoo.java,2\0\20cf85ad857f87452a817f1f97d209aa1286e9d5
-g
 7src/main/java/dam/senseigithub/test/LoadConnection.java,4\8\48a354159ba61683eaeb5a8041ab63f2f92b5c1e
 g
 7src/main/java/dam/senseigithub/model/dao/ClientDAO.java,3\7\37019465fc4cd9abeffeff8c4d62f822695bbf6b
 ^
 .src/main/java/dam/senseigithub/Executable.java,3\a\3a65e98770f554df6085670c50027aa9281bfdb0
-g
-7src/main/java/dam/senseigithub/model/dao/TattooDAO.java,b\2\b2c468c5f61f8937dc518552828c9cb288d5cbc2
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 :

@@ -6,12 +6,15 @@ import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.entity.Appointment;
 import dam.senseigithub.model.entity.Client;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class DeleteAppointmentController {
+public class DeleteAppointmentController implements Initializable {
     @FXML
     private ComboBox<String> clientComboBox;
 
@@ -21,8 +24,8 @@ public class DeleteAppointmentController {
     private ClientDAO clientDAO = new ClientDAO();
     private AppointmentDAO appointmentDAO = new AppointmentDAO();
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // Cargar los nombres de los clientes en el ComboBox
         loadClientNames();
         loadDates();
@@ -53,6 +56,4 @@ public class DeleteAppointmentController {
             }
         }
     }
-
-
 }

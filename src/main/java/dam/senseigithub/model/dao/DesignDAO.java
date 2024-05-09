@@ -1,6 +1,7 @@
 package dam.senseigithub.model.dao;
 
 import dam.senseigithub.model.connection.ConnectionMariaDB;
+import dam.senseigithub.model.entity.Client;
 import dam.senseigithub.model.entity.Design;
 
 import java.io.ByteArrayInputStream;
@@ -12,16 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DesignDAO {
-    private final static String INSERT = "INSERT INTO diseno (Nombre, Tamano, Imagen) VALUES (?, ?, ?)";
+    private final static String INSERT = "INSERT INTO diseno (Id_Cliente, Nombre, Tamano, Imagen) VALUES ((SELECT Id_Cliente FROM cliente WHERE Nombre = ?), ?, ?, ?)";
     private final static String DELETE = "DELETE FROM diseno WHERE Nombre=?";
     private final static String SELECT_ALL = "SELECT * FROM diseno";
 
-    public void addDesign(Design design) {
+
+    public void addDesign(Design design, Client client) {
         if (design == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
-            pst.setString(1, design.getName());
-            pst.setFloat(2, design.getSize());
-            pst.setBytes(3, design.getImagen());
+            pst.setString(1, client.getName());
+            pst.setString(2, design.getName());
+            pst.setFloat(3, design.getSize());
+            pst.setBytes(4, design.getImagen());
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

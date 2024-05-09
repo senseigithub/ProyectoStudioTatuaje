@@ -1,7 +1,6 @@
 package dam.senseigithub.controller.clients;
 
 import dam.senseigithub.App;
-import dam.senseigithub.controller.appointments.AddAppointmentController;
 import dam.senseigithub.model.dao.AppointmentDAO;
 import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.entity.Appointment;
@@ -10,20 +9,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
-import java.util.Optional;
 
-public class ClientListController {
+import java.util.ResourceBundle;
+
+public class ClientListController implements Initializable {
 
     @FXML
     private TableView<Client> clientTableView;
@@ -43,8 +37,8 @@ public class ClientListController {
     private ClientDAO clientDAO = new ClientDAO();
     private AppointmentDAO appointmentDAO = new AppointmentDAO();
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         clientTableView.setEditable(true);
         dniColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getDnie()));
         nameColumn.setCellValueFactory(client -> new SimpleStringProperty(client.getValue().getName()));

@@ -4,6 +4,7 @@ import dam.senseigithub.App;
 import dam.senseigithub.model.dao.DesignDAO;
 import dam.senseigithub.model.entity.Design;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
@@ -13,10 +14,12 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
@@ -26,8 +29,8 @@ public class MainController {
 
     private DesignDAO designDAO = new DesignDAO(); // Suponiendo que tienes un DesignDAO para acceder a las imágenes
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // Configurar el espacio entre las celdas del GridPane
         imageGridPane.setHgap(120);
         imageGridPane.setVgap(50);

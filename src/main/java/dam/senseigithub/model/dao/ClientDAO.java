@@ -19,6 +19,10 @@ public class ClientDAO {
     private final static String DELETE = "DELETE FROM cliente WHERE Dnie=? AND Nombre=?";
     private static final String SELECT_ALL_NAMES = "SELECT Nombre FROM cliente";
 
+    /**
+     * Este metodo añade un nuevo cliente a la Base de datos.
+     * @param client recibe el cliente que se quiere añadir.
+     */
     public void addClient(Client client) {
         if (client == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
@@ -39,6 +43,10 @@ public class ClientDAO {
         }
     }
 
+    /**
+     * Esta función devuelve todos los nombres de los clientes de la Base de datos.
+     * @return Los devuelve.
+     */
     public List<String> getAllClientNames() {
         List<String> clientNames = new ArrayList<>();
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_ALL_NAMES)) {
@@ -52,6 +60,11 @@ public class ClientDAO {
         return clientNames;
     }
 
+    /**
+     * Te devuelve un cliente a partir de su nombre.
+     * @param name el parametro a introducir es el nombre del cliente.
+     * @return devuelve el cliente del que has introducido el nombre.
+     */
     public Client getClientByName(String name) {
         Client client = null;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_BY_NAME)) {
@@ -71,6 +84,10 @@ public class ClientDAO {
         return client;
     }
 
+    /**
+     * Actualiza un cliente de la Base de datos.
+     * @param client recibe el cliente que quieres actualizar.
+     */
     public void updateClient(Client client) {
         if (client == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
@@ -84,6 +101,10 @@ public class ClientDAO {
         }
     }
 
+    /**
+     * Borra un cliente de la Base de datos.
+     * @param client recibe el cliente que quieres borrar.
+     */
     public void deleteClient(Client client) {
         if (client == null || client.getDnie() == null || client.getName() == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
@@ -96,6 +117,11 @@ public class ClientDAO {
         }
     }
 
+    /**
+     * Busca el cliente en la base de datos.
+     * @param id el parametro a introducir es el id del cliente.
+     * @return devuelve el cliente al que has introducido el id.
+     */
     public Client findById(int id) {
         Client client = null;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDBYID)) {
@@ -116,6 +142,11 @@ public class ClientDAO {
     }
 
 
+    //Este es LAZY, porque me he traido cosas de una por una, cuando las necesito.
+    /**
+     * Devuelve todos los clientes de la Base de datos.
+     * @return Los devuelve.
+     */
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<>();
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDALL)) {
