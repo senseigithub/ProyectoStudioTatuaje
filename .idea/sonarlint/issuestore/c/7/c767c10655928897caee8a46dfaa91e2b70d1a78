@@ -1,5 +1,5 @@
 
-c
-java:S1192H"FDefine a constant instead of duplicating this literal "Error" 5 times.(Ê‡îÓ8°Ûœéõ1
-g
-java:S26745"JCheck the return value of the "read" call to see how many bytes were read.(¬­å²8×Ûœéõ1
+‰
+java:S1192H"FDefine a constant instead of duplicating this literal "Error" 5 times.(Ê‡îÓ8·×µ¶÷1J$a0176e86-fdc1-4211-8e0d-fee68aa44f09
+
+java:S26746"JCheck the return value of the "read" call to see how many bytes were read.(¬­å²8Ú×µ¶÷1J$78f1d597-ab88-4bf4-8dd1-34bb791b4817

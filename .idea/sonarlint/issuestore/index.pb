@@ -44,7 +44,5 @@ g
 7src/main/java/dam/senseigithub/model/dao/DesignDAO.java,0\5\053445eadfaac58c509199488433e84b61719401
 „
 Tsrc/main/java/dam/senseigithub/controller/appointments/AddAppointmentController.java,d\4\d49a7164d895abd10ef4180e789bbe4509d5f7ea
-‡
-Wsrc/main/java/dam/senseigithub/controller/appointments/DeleteAppointmentController.java,f\6\f60ca3f0a9071a4d885ac2b629b36db364bc1b59
 i
 9src/main/java/dam/senseigithub/controller/Controller.java,7\c\7c6b64296d3526e9ce8f2b398515dbdffd168d94

@@ -1,13 +1,16 @@
 package dam.senseigithub.controller;
 
 import dam.senseigithub.App;
+import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.dao.DesignDAO;
+import dam.senseigithub.model.entity.Client;
 import dam.senseigithub.model.entity.Design;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -27,7 +30,47 @@ public class MainController implements Initializable {
     @FXML
     private GridPane imageGridPane;
 
-    private DesignDAO designDAO = new DesignDAO(); // Suponiendo que tienes un DesignDAO para acceder a las imágenes
+    @FXML
+    private TextField textFieldBusqueda;
+
+    private DesignDAO designDAO = new DesignDAO();
+
+    private final ClientDAO clientDAO = new ClientDAO();
+
+    @FXML
+    private void buscar() {
+        String terminoBusqueda = textFieldBusqueda.getText().trim();
+        Client resultadoBusqueda = clientDAO.getClientByName(terminoBusqueda);
+
+        if (resultadoBusqueda != null) {
+            mostrarDetallesCliente(resultadoBusqueda);
+        } else {
+            mostrarMensajeAlerta("Cliente no encontrado", "No se encontró ningún cliente con el nombre: " + terminoBusqueda);
+        }
+        textFieldBusqueda.clear();
+    }
+
+    private void mostrarDetallesCliente(Client cliente) {
+        // Mostrar los detalles del cliente en una ventana emergente (por ejemplo, utilizando la clase Alert)
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Detalles del cliente");
+        alerta.setHeaderText(null);
+        alerta.setContentText("ID: " + cliente.getIdClient() + "\n" +
+                "Nombre: " + cliente.getName() + "\n" +
+                "DNI: " + cliente.getDnie() + "\n" +
+                "Email: " + cliente.getEmail() + "\n" +
+                "Teléfono: " + cliente.getPhone());
+        alerta.showAndWait();
+    }
+
+    private void mostrarMensajeAlerta(String titulo, String mensaje) {
+        // Mostrar un mensaje de alerta en una ventana emergente
+        Alert alerta = new Alert(Alert.AlertType.WARNING);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

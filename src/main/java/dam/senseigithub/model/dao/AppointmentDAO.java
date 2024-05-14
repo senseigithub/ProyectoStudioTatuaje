@@ -10,8 +10,8 @@ import java.util.List;
 
 public class AppointmentDAO {
     private final static String INSERT = "INSERT INTO cita (Id_Cliente, Fecha) VALUES ((SELECT Id_Cliente FROM cliente WHERE Nombre = ?), ?)";
-    private static final String DELETE_BY_NAME_AND_DATE = "DELETE FROM cita WHERE Id_Cliente = (SELECT Id_Cliente FROM cliente WHERE Nombre = ?) AND Fecha = ?";
-    private static final String SELECT_BY_CLIENT_ID = "SELECT * FROM cita WHERE Id_Cliente = ?";
+    private static final String DELETE_BY_NAME = "DELETE FROM cita WHERE Id_Cliente = (SELECT Id_Cliente FROM cliente WHERE Nombre = ?)";
+    private static final String SELECT_BY_CLIENT_ID = "SELECT * FROM Cita WHERE Id_Cliente = ?";
 
     /**
      * Añade una cita a la base de datos.
@@ -28,11 +28,13 @@ public class AppointmentDAO {
         }
     }
 
-
-    public void deleteAppointmentsByClientNameAndDate(String clientName, String date) {
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE_BY_NAME_AND_DATE)) {
+    /**
+     * Borra las citas utilizando el nombre del cliente.
+     * @param clientName recibe el nombre del cliente.
+     */
+    public void deleteAllAppointmentsByClientName(String clientName) {
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE_BY_NAME)) {
             pst.setString(1, clientName);
-            pst.setString(2, date);
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,7 +48,7 @@ public class AppointmentDAO {
      */
     public List<Appointment> getAppointmentsByClientId(int clientId) {
         List<Appointment> appointments = new ArrayList<>();
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement("SELECT * FROM Cita WHERE Id_Cliente = ?")) {
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_BY_CLIENT_ID)) {
             pst.setInt(1, clientId);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {

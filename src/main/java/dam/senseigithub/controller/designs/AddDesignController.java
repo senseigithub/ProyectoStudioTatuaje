@@ -1,6 +1,7 @@
 package dam.senseigithub.controller.designs;
 
 import dam.senseigithub.App;
+import dam.senseigithub.controller.Controller;
 import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.dao.DesignDAO;
 import dam.senseigithub.model.entity.Client;
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddDesignController implements Initializable {
+public class AddDesignController extends Controller implements Initializable {
     @FXML
     private HBox hbox;
     @FXML
@@ -67,18 +68,15 @@ public class AddDesignController implements Initializable {
         String designName = name.getText();
         String sizeText = size.getText();
 
-        // Verificar si no se seleccionó un cliente
         if (selectedClientName == null) {
             showAlert("Error", "Cliente no seleccionado", "Por favor, seleccione un cliente.");
         }
 
-        // Verificar que los campos de texto no estén vacíos
         if (designName.isEmpty() || sizeText.isEmpty()) {
             showAlert("Error", "Campos incompletos", "Por favor, complete todos los campos.");
             return;
         }
 
-        // Verificar si el tamaño es un número flotante válido
         float designSize;
         try {
             designSize = Float.parseFloat(sizeText);
@@ -87,7 +85,6 @@ public class AddDesignController implements Initializable {
             return;
         }
 
-        // Obtener el cliente por su nombre
         Client client = clientDAO.getClientByName(selectedClientName);
         if (client == null) {
             showAlert("Error", "Cliente no seleccionado", "Por favor, seleccione un cliente.");
@@ -100,22 +97,15 @@ public class AddDesignController implements Initializable {
             return;
         }
 
-        // Crear el objeto Design
         Design design = new Design();
         client.setName(selectedClientName);
         design.setName(designName);
         design.setSize(designSize);
         design.setImagen(imageToDB);
-
-        // Agregar el diseño usando el DesignDAO
         designDAO.addDesign(design, client);
-
-        // Mostrar una alerta de éxito
         showAlertConfirm("Éxito", "Diseño agregado", "El diseño se ha agregado con éxito.");
-
-        // Volver al menú principal
         try {
-            App.setRoot("mainView"); // Suponiendo que tienes un método en la clase App para cambiar la vista al menú principal
+            App.setRoot("mainView");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -141,5 +131,10 @@ public class AddDesignController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadClientNames();
+    }
+
+    @FXML
+    public void backToMainView() throws IOException {
+        App.setRoot("mainView");
     }
 }

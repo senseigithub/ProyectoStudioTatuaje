@@ -1,6 +1,7 @@
 package dam.senseigithub.controller.clients;
 
 import dam.senseigithub.App;
+import dam.senseigithub.controller.Controller;
 import dam.senseigithub.model.dao.AppointmentDAO;
 import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.entity.Appointment;
@@ -17,7 +18,7 @@ import java.util.List;
 
 import java.util.ResourceBundle;
 
-public class ClientListController implements Initializable {
+public class ClientListController extends Controller implements Initializable {
 
     @FXML
     private TableView<Client> clientTableView;
@@ -47,8 +48,6 @@ public class ClientListController implements Initializable {
         List<Client> clients = clientDAO.getAllClients();
         ObservableList<Client> observableClients = FXCollections.observableArrayList(clients);
         clientTableView.setItems(observableClients);
-
-        // Agregar un manejador para el evento de clic derecho en la tabla
         clientTableView.setRowFactory(tableView -> {
             final TableRow<Client> row = new TableRow<>();
             final ContextMenu contextMenu = new ContextMenu();
@@ -59,8 +58,16 @@ public class ClientListController implements Initializable {
                     showAppointmentsDialog(client);
                 }
             });
-            contextMenu.getItems().add(viewAppointmentsItem);
-            // Solo muestra el menú contextual cuando se hace clic derecho en una fila
+
+            final MenuItem deleteAppointmentsItem = new MenuItem("Borrar todas las citas");
+            deleteAppointmentsItem.setOnAction(event -> {
+                Client client = row.getItem();
+                if (client != null) {
+                    appointmentDAO.deleteAllAppointmentsByClientName(client.getName());
+                }
+            });
+
+            contextMenu.getItems().addAll(viewAppointmentsItem, deleteAppointmentsItem);
             row.contextMenuProperty().bind(
                     javafx.beans.binding.Bindings.when(row.emptyProperty())
                             .then((ContextMenu) null)
@@ -69,7 +76,6 @@ public class ClientListController implements Initializable {
             return row;
         });
     }
-
     private void showAppointmentsDialog(Client client) {
         List<Appointment> appointments = appointmentDAO.getAppointmentsByClientId(client.getIdClient());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -86,11 +92,8 @@ public class ClientListController implements Initializable {
         }
         alert.showAndWait();
     }
-    // Métodos para cambiar de vista
-    @FXML
-    private void backToMainView() throws IOException {
-        App.setRoot("mainView");
-    }
+
+
 
     @FXML
     private void switchToClientList() throws IOException {
@@ -110,5 +113,10 @@ public class ClientListController implements Initializable {
     @FXML
     private void switchToAddDesign() throws IOException {
         App.setRoot("AddDesign");
+    }
+
+    @FXML
+    public void backToMainView() throws IOException {
+        App.setRoot("mainView");
     }
 }

@@ -17,7 +17,6 @@ public class ClientDAO {
     private static final String SELECT_BY_NAME = "SELECT * FROM cliente WHERE Nombre = ?";
     private final static String FINDBYID = "SELECT * FROM cliente WHERE Id_Cliente=?";
     private final static String DELETE = "DELETE FROM cliente WHERE Dnie=? AND Nombre=?";
-    private static final String SELECT_ALL_NAMES = "SELECT Nombre FROM cliente";
 
     /**
      * Este metodo añade un nuevo cliente a la Base de datos.
@@ -41,23 +40,6 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Esta función devuelve todos los nombres de los clientes de la Base de datos.
-     * @return Los devuelve.
-     */
-    public List<String> getAllClientNames() {
-        List<String> clientNames = new ArrayList<>();
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_ALL_NAMES)) {
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                clientNames.add(rs.getString("Nombre"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return clientNames;
     }
 
     /**

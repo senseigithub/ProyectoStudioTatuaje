@@ -1,7 +1,6 @@
 package dam.senseigithub.model.entity;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class Appointment {
     private int idAppointment;

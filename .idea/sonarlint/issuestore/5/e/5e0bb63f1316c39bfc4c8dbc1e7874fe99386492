@@ -1,7 +1,5 @@
 
 
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8˜¼™Æõ1J$24c55382-b2eb-4368-9aed-a6316d882314
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÑäæÂÿÿÿÿÿ8ğÅööõ1J$14b444ca-4c9f-404c-8516-2b12e522d02c
 g
-java:S69051"Don't use the query "SELECT *".(©ĞƒÔùÿÿÿÿ8¥¼™Æõ1J$e96cfcf4-8904-4b44-9915-91bfd9ba4aa0
-
-java:S1068"7Remove this unused "SELECT_BY_CLIENT_ID" private field.(ÂëË¹úÿÿÿÿ8äëÆõ1J$e8100e0d-25d0-4fac-a069-eb3b2c87f964
+java:S6905"Don't use the query "SELECT *".(Ç…äøÿÿÿÿ8ûÅööõ1J$582d7b8e-9ed1-4a0b-8c4e-dc3b44338308

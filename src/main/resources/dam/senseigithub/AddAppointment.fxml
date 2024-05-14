@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -13,7 +15,16 @@
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
     <children>
-      <ComboBox fx:id="clientComboBox" prefWidth="150.0" translateY="-30.0" />
+      <HBox alignment="CENTER" prefHeight="96.0" prefWidth="356.0">
+         <children>
+            <ComboBox fx:id="clientComboBox" prefWidth="150.0" promptText="Usuario" translateX="17.0" />
+            <ImageView fitHeight="44.0" fitWidth="33.0" onMouseClicked="#backToMainView" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+               <image>
+                  <Image url="@Transparent_X.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
         <DatePicker fx:id="datePicker" promptText="Seleccionar fecha" />
       <HBox alignment="CENTER" prefHeight="48.0" prefWidth="356.0">
          <children>

@@ -17,7 +17,11 @@ public class DesignDAO {
     private final static String DELETE = "DELETE FROM diseno WHERE Nombre=?";
     private final static String SELECT_ALL = "SELECT * FROM diseno";
 
-
+    /**
+     * Añadir diseño por el nombre del cliente
+     * @param design recibe el diseño a introducir.
+     * @param client recibe el cliente al que le quieres introducir el diseño.
+     */
     public void addDesign(Design design, Client client) {
         if (design == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
@@ -31,6 +35,11 @@ public class DesignDAO {
         }
     }
 
+    /**
+     * Borra el diseño
+     * @param design recibe el diseño que queremos borrar.
+     * @throws SQLException lanza la excepcion.
+     */
     public void deleteDesign(Design design) throws SQLException {
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
             pst.setString(1, design.getName());
@@ -38,6 +47,11 @@ public class DesignDAO {
         }
     }
 
+    /**
+     * Coge todos los diseños de la base de datos.
+     * @return te devuelve todos los diseños de la base de datos.
+     * @throws SQLException
+     */
     public List<Design> getAllDesigns() throws SQLException {
         List<Design> designs = new ArrayList<>();
         try (Statement stmt = ConnectionMariaDB.getConnection().createStatement()) {

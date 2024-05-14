@@ -1,6 +1,7 @@
 package dam.senseigithub.controller.clients;
 
 import dam.senseigithub.App;
+import dam.senseigithub.controller.Controller;
 import dam.senseigithub.model.dao.ClientDAO;
 import dam.senseigithub.model.entity.Client;
 import javafx.fxml.FXML;
@@ -8,7 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class AddUserController {
+public class AddUserController extends Controller {
 
     @FXML
     private TextField dni;
@@ -46,5 +47,10 @@ public class AddUserController {
         name.clear();
         email.clear();
         phone.clear();
+    }
+
+    @FXML
+    public void backToMainView() throws IOException {
+        App.setRoot("mainView");
     }
 }

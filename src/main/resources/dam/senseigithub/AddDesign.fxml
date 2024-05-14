@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -16,12 +17,17 @@
          <font>
             <Font name="Cambria" size="16.0" />
          </font></Label>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="411.0">
                 <children>
                     <ComboBox fx:id="clientComboBox" prefWidth="150.0" />
+            <ImageView fitHeight="25.0" fitWidth="37.0" onMouseClicked="#backToMainView" pickOnBounds="true" preserveRatio="true" translateX="100.0">
+               <image>
+                  <Image url="@Transparent_X.png" />
+               </image>
+            </ImageView>
                 </children>
         </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Nombre:    ">
                <font>
@@ -30,7 +36,7 @@
             <TextField fx:id="name" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Tamaño:    ">
                <font>
@@ -39,12 +45,12 @@
             <TextField fx:id="size" />
          </children>
       </HBox>
-      <HBox prefHeight="150.0" prefWidth="427.0">
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="427.0">
          <children>
             <ImageView fx:id="preview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
          </children>
       </HBox>
-      <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0">
+      <HBox fx:id="hbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#selectImage" text="Selecciona el diseño..." textAlignment="CENTER">
                <font>
