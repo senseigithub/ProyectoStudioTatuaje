@@ -53,7 +53,7 @@
                         <Font name="Cambria" size="16.0" />
                      </font>
                   </SplitMenuButton>
-                  <TextField fx:id="textFieldBusqueda" onAction="#buscar" prefHeight="36.0" prefWidth="261.0" promptText="Buscar" translateX="180.0" />
+                  <TextField fx:id="textFieldBusqueda" onAction="#search" prefHeight="36.0" prefWidth="261.0" promptText="Buscar" translateX="180.0" />
               </items>
             </ToolBar>
          </top>

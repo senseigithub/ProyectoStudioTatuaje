@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -37,21 +36,27 @@ public class MainController implements Initializable {
 
     private final ClientDAO clientDAO = new ClientDAO();
 
+    /**
+     * Buscar un cliente
+     */
     @FXML
-    private void buscar() {
+    private void search() {
         String terminoBusqueda = textFieldBusqueda.getText().trim();
         Client resultadoBusqueda = clientDAO.getClientByName(terminoBusqueda);
 
         if (resultadoBusqueda != null) {
-            mostrarDetallesCliente(resultadoBusqueda);
+            clientDetails(resultadoBusqueda);
         } else {
             mostrarMensajeAlerta("Cliente no encontrado", "No se encontró ningún cliente con el nombre: " + terminoBusqueda);
         }
         textFieldBusqueda.clear();
     }
 
-    private void mostrarDetallesCliente(Client cliente) {
-        // Mostrar los detalles del cliente en una ventana emergente (por ejemplo, utilizando la clase Alert)
+    /**
+     * Te muestra los detalles del cliente.
+     * @param cliente recibe el cliente buscado.
+     */
+    private void clientDetails(Client cliente) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Detalles del cliente");
         alerta.setHeaderText(null);
@@ -64,7 +69,6 @@ public class MainController implements Initializable {
     }
 
     private void mostrarMensajeAlerta(String titulo, String mensaje) {
-        // Mostrar un mensaje de alerta en una ventana emergente
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         alerta.setTitle(titulo);
         alerta.setHeaderText(null);
@@ -72,36 +76,33 @@ public class MainController implements Initializable {
         alerta.showAndWait();
     }
 
+    /**
+     * Inicializa la pantalla con las fotos de los diseños de los clientes.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Configurar el espacio entre las celdas del GridPane
         imageGridPane.setHgap(120);
         imageGridPane.setVgap(50);
 
         try {
-            // Obtener la lista de diseños de la base de datos
             List<Design> designs = designDAO.getAllDesigns();
-
-            // Iterar sobre la lista de diseños y crear un ImageView para cada uno
             int column = 0;
             int row = 0;
             for (Design design : designs) {
-                Image image = new Image(design.getImageInputStream()); // Suponiendo que tienes un método para obtener un InputStream de la imagen
+                Image image = new Image(design.getImageInputStream());
                 ImageView imageView = new ImageView(image);
-                imageView.setFitWidth(230); // Ajusta el ancho según tus necesidades
-                imageView.setFitHeight(200); // Ajusta la altura según tus necesidades
-
-                // Agrega el ImageView al GridPane
+                imageView.setFitWidth(230);
+                imageView.setFitHeight(200);
                 imageGridPane.add(imageView, column, row);
 
-                // Agregar evento de doble clic a cada ImageView
                 imageView.setOnMouseClicked(event -> {
                     if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                         handleDoubleClick(design);
                     }
                 });
 
-                // Avanza a la siguiente fila si se alcanza el límite de columnas
                 column++;
                 if (column == 3) {
                     column = 0;
@@ -110,14 +111,16 @@ public class MainController implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Manejar la excepción según tus necesidades
         }
     }
 
+    /**
+     * Resfresca los diseños cuando añades uno a un cliente.
+     */
     private void refreshDesignList() {
         try {
             List<Design> designs = designDAO.getAllDesigns();
-            imageGridPane.getChildren().clear(); // Limpiar el GridPane
+            imageGridPane.getChildren().clear();
             int column = 0;
             int row = 0;
             for (Design design : designs) {
@@ -131,7 +134,6 @@ public class MainController implements Initializable {
                     }
                 });
                 imageGridPane.add(imageView, column, row);
-                // Avanzar a la siguiente fila si se alcanza el límite de columnas
                 column++;
                 if (column == 3) {
                     column = 0;
@@ -143,6 +145,10 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Acción cuando haces doble clic en un diseño
+     * @param design el diseño que has pickeado.
+     */
     private void handleDoubleClick(Design design) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmación");
@@ -153,7 +159,7 @@ public class MainController implements Initializable {
             if (response == ButtonType.OK) {
                 try {
                     designDAO.deleteDesign(design);
-                    refreshDesignList(); // Actualizar la lista de diseños y refrescar la vista
+                    refreshDesignList();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -161,35 +167,48 @@ public class MainController implements Initializable {
         });
     }
 
-
-
+    /**
+     * Cambiar a la lista de clientes.
+     * @throws IOException
+     */
     @FXML
     private void switchToClientList() throws IOException {
         App.setRoot("ClientList");
     }
 
+    /**
+     * Cambiar a la vista de agregar un cliente.
+     * @throws IOException
+     */
     @FXML
     private void switchToAddUser() throws IOException {
         App.setRoot("AddClient");
     }
 
+    /**
+     * Cambias a la vista de borrar un cliente.
+     * @throws IOException
+     */
     @FXML
     private void switchToDeleteClient() throws IOException {
         App.setRoot("DeleteClient");
     }
 
+    /**
+     * Cambiar a la vista de agregar un diseño.
+     * @throws IOException
+     */
     @FXML
     private void switchToAddDesign() throws IOException {
         App.setRoot("AddDesign");
     }
 
+    /**
+     * Cambiar a la vista de agregar una cita.
+     * @throws IOException
+     */
     @FXML
     private void switchToAddAppointment() throws IOException {
         App.setRoot("AddAppointment");
-    }
-
-    @FXML
-    private void switchToDeleteAppointment() throws IOException {
-        App.setRoot("DeleteAppointment");
     }
 }

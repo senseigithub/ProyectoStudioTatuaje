@@ -39,6 +39,9 @@ public class AddDesignController extends Controller implements Initializable {
 
     private ClientDAO clientDAO = new ClientDAO();
 
+    /**
+     * Este es el file chooser para seleccionar la imagen.
+     */
     @FXML
     public void selectImage() {
         FileChooser fileChooser = new FileChooser();
@@ -62,6 +65,10 @@ public class AddDesignController extends Controller implements Initializable {
         clientComboBox.getItems().clear();
         clientDAO.getAllClients().forEach(client -> clientComboBox.getItems().add(client.getName()));
     }
+
+    /**
+     * Sube la imagen a la base de datos, si la ha seleccionado y está correcto.
+     */
     @FXML
     public void uploadImage() {
         String selectedClientName = clientComboBox.getValue();
@@ -91,7 +98,6 @@ public class AddDesignController extends Controller implements Initializable {
             return;
         }
 
-        // Verificar si se ha seleccionado una imagen
         if (imageToDB == null) {
             showAlert("Error", "Imagen no seleccionada", "Por favor, seleccione una imagen.");
             return;
@@ -111,7 +117,12 @@ public class AddDesignController extends Controller implements Initializable {
         }
     }
 
-
+    /**
+     * Mostrar alerta de error.
+     * @param title
+     * @param header
+     * @param content
+     */
     private void showAlert(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -120,6 +131,12 @@ public class AddDesignController extends Controller implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * La alerta para confirmar subir la imagen.
+     * @param title
+     * @param header
+     * @param content
+     */
     private void showAlertConfirm(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
@@ -128,6 +145,11 @@ public class AddDesignController extends Controller implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Carga los clientes al inicio de la vista.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadClientNames();

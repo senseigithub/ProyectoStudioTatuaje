@@ -1,9 +1,13 @@
 
 s
-java:S1117"7Rename "dni" which hides the field declared at line 14.(ê¶èJ$cf9a80a5-73ea-4f0b-920b-8d982efff525
+java:S1117%"7Rename "dni" which hides the field declared at line 16.(ê¶èJ$dc8c4e10-0332-444a-b95c-75e33c322f30
 y
-java:S1117 "8Rename "name" which hides the field declared at line 17.(£âè¼ûÿÿÿÿJ$231828e1-133a-457a-adcc-a0fdc32f60d1
+java:S1117&"8Rename "name" which hides the field declared at line 19.(£âè¼ûÿÿÿÿJ$31d416c0-dcef-4ca8-a040-61ec24994764
 z
-java:S1117!"9Rename "email" which hides the field declared at line 20.(²‘œ…ùÿÿÿÿJ$8076150b-2f4e-4a84-adec-985c9af47972
+java:S1117'"9Rename "email" which hides the field declared at line 22.(²‘œ…ùÿÿÿÿJ$92eda960-56fa-4dbb-b123-0187970da0ad
 z
-java:S1117""9Rename "phone" which hides the field declared at line 23.(ÕšåÑøÿÿÿÿJ$6e0e1919-ee74-491b-9f8e-3b7429669b45
+java:S1117("9Rename "phone" which hides the field declared at line 25.(ÕšåÑøÿÿÿÿJ$faeac6a2-b348-4fac-860d-5d78271d0253
+
+java:S6353?"<Use concise character class syntax '\\d' instead of '[0-9]'.(æ†æö8­Ñ„‡ø1J$724c1a41-d3e8-4e74-b89c-5f9b49c441cc
+„
+java:S6353K"<Use concise character class syntax '\\d' instead of '[0-9]'.(ŸéÜ±úÿÿÿÿ8¹Ñ„‡ø1J$90c141ee-0184-45b6-a9d0-725dff3bb670

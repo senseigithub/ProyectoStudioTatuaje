@@ -41,11 +41,17 @@ public class AddAppointmentController extends Controller implements Initializabl
         loadClientNames();
     }
 
+    /**
+     * Carga los nombres de los clientes en el ComboBox.
+     */
     private void loadClientNames() {
         clientComboBox.getItems().clear();
         clientDAO.getAllClients().forEach(client -> clientComboBox.getItems().add(client.getName()));
     }
 
+    /**
+     * Guarda una nueva cita.
+     */
     @FXML
     private void saveAppointment() {
         String selectedClientName = clientComboBox.getValue();
@@ -78,6 +84,11 @@ public class AddAppointmentController extends Controller implements Initializabl
         clearFields();
     }
 
+    /**
+     * Muestra la alerta de advertencia.
+     * @param title
+     * @param message
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
@@ -85,12 +96,18 @@ public class AddAppointmentController extends Controller implements Initializabl
         alert.showAndWait();
     }
 
+    /**
+     * Limpia los campos.
+     */
     private void clearFields() {
         clientComboBox.getSelectionModel().clearSelection();
         datePicker.setValue(null);
 
     }
 
+    /**
+     * Añade al label, 1 hora.
+     */
     @FXML
     private void addHour() {
         String current = hour.getText();
@@ -106,6 +123,9 @@ public class AddAppointmentController extends Controller implements Initializabl
         }
     }
 
+    /**
+     * Resta al label, 1 hora.
+     */
     @FXML
     private void substractHour() {
         String current = hour.getText();
@@ -120,6 +140,9 @@ public class AddAppointmentController extends Controller implements Initializabl
         }
     }
 
+    /**
+     * Añade 1 minuto.
+     */
     @FXML
     private void addMinute() {
         String current = minute.getText();
@@ -134,6 +157,9 @@ public class AddAppointmentController extends Controller implements Initializabl
         }
     }
 
+    /**
+     * Resta 1 minuto.
+     */
     @FXML
     private void substractMinute() {
         String current = minute.getText();
@@ -148,6 +174,10 @@ public class AddAppointmentController extends Controller implements Initializabl
         }
     }
 
+    /**
+     * Vuelve a la vista principal.
+     * @throws IOException
+     */
     @FXML
     public void backToMainView() throws IOException {
         App.setRoot("mainView");

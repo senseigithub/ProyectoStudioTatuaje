@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ClientDAO {
     private final static String INSERT = "INSERT INTO cliente (Dnie, Nombre, Email, Telefono) VALUES (?, ?, ?, ?)";
-    private final static String UPDATE = "UPDATE cliente SET Dnie=?, Nombre=?, Email=?, Telefono=? WHERE Id_Cliente=?";
+    private final static String UPDATE = "UPDATE cliente SET Dnie=?, Nombre=?, Email=?, Telefono=? WHERE Dnie=?";
     private final static String FINDALL = "SELECT * FROM cliente";
     private static final String SELECT_BY_NAME = "SELECT * FROM cliente WHERE Nombre = ?";
     private final static String FINDBYID = "SELECT * FROM cliente WHERE Id_Cliente=?";
@@ -77,6 +77,7 @@ public class ClientDAO {
             pst.setString(2, client.getName());
             pst.setString(3, client.getEmail());
             pst.setString(4, client.getPhone());
+            pst.setString(5, client.getDnie());
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,26 +1,26 @@
 
-
-java:S1192:"GDefine a constant instead of duplicating this literal "Nombre" 3 times.(ìñ¾€ùÿÿÿÿ8 »Ë¶÷1J$19295095-ffd9-411b-a296-c6892c0784fe
-ˆ
-java:S1192<"FDefine a constant instead of duplicating this literal "Email" 3 times.(ß–Û#8ÃÚÅäõ1J$a5d236d3-7492-4bb0-850e-096828d562f3
-‘
-java:S1192="IDefine a constant instead of duplicating this literal "Telefono" 3 times.(×ÿ×ğûÿÿÿÿ8ÃÚÅäõ1J$29a7fd7f-4fc5-4e2d-9adf-c9e08a7c3706
-
-java:S11929"KDefine a constant instead of duplicating this literal "Id_Cliente" 3 times.(î†šÿ8ÃÚÅäõ1J$3a071dd5-f9ef-44e6-9f1f-7778c18fd09b
-ˆ
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(İâ±8ÙÚÅäõ1J$75b3f600-2ec7-4229-83e0-12babb0009f6
-
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ä÷²ïúÿÿÿÿ8ÚÚÅäõ1J$9956dc93-3351-4d6e-aad7-ec6dedfb890a
-
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷–¦—ûÿÿÿÿ8ÚÚÅäõ1J$d67794e0-b248-494b-ab15-e69234144b73
-
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¶¼¼ìúÿÿÿÿ8ÚÚÅäõ1J$c59ec298-d96f-4e89-b364-8efdca628193
-
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(××±Óşÿÿÿÿ8ÚÚÅäõ1J$d0f5b39c-cd31-46bb-b3f6-2cc9162229f3
+i
+java:S1192:"GDefine a constant instead of duplicating this literal "Nombre" 3 times.(ìñ¾€ùÿÿÿÿ8¸ùÁ¸÷1
+b
+java:S1192<"FDefine a constant instead of duplicating this literal "Email" 3 times.(ß–Û#8¸ùÁ¸÷1
+k
+java:S1192="IDefine a constant instead of duplicating this literal "Telefono" 3 times.(×ÿ×ğûÿÿÿÿ8¹ùÁ¸÷1
+h
+java:S11929"KDefine a constant instead of duplicating this literal "Id_Cliente" 3 times.(î†šÿ8¹ùÁ¸÷1
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(İâ±8ÔùÁ¸÷1
 g
-java:S6905"Don't use the query "SELECT *".(·°ìÆşÿÿÿÿ8âÚÅäõ1J$00e54f2e-e5d5-44a5-ad70-7437a8b935ee
-r	java:S106`"+Replace this use of System.out by a logger.(ÊÚ«øÿÿÿÿ8êÚÅäõ1J$77e59da6-9932-4e78-ba94-4feffd36e300
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÒİœÕùÿÿÿÿ8ÕùÁ¸÷1
 g
-java:S6905"Don't use the query "SELECT *".(¶¼¼ìúÿÿÿÿ8ëÚÅäõ1J$9b675c20-b273-4fd5-8213-36873d88d445
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷–¦—ûÿÿÿÿ8ÕùÁ¸÷1
 g
-java:S6905"Don't use the query "SELECT *".(÷–¦—ûÿÿÿÿ8îÚÅäõ1J$95c09ace-891b-4b94-96ca-a6bb343506cd
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¶¼¼ìúÿÿÿÿ8ÕùÁ¸÷1
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(××±Óşÿÿÿÿ8ÕùÁ¸÷1
+A
+java:S6905"Don't use the query "SELECT *".(·°ìÆşÿÿÿÿ8ÙùÁ¸÷1
+L	java:S106a"+Replace this use of System.out by a logger.(ÊÚ«øÿÿÿÿ8ßùÁ¸÷1
+A
+java:S6905"Don't use the query "SELECT *".(¶¼¼ìúÿÿÿÿ8ßùÁ¸÷1
+A
+java:S6905"Don't use the query "SELECT *".(÷–¦—ûÿÿÿÿ8âùÁ¸÷1
