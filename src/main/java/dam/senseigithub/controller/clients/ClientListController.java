@@ -16,6 +16,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import java.util.ResourceBundle;
@@ -127,25 +130,38 @@ public class ClientListController extends Controller implements Initializable {
     }
 
     /**
-     * Muestra un JDialog con las citas que tiene un cliente.
-     * @param client
+     * Muestra un diálogo con las citas que tiene un cliente, permitiendo la edición de las fechas.
+     * @param client El cliente del que se mostrarán las citas.
      */
     private void showAppointmentsDialog(Client client) {
         List<Appointment> appointments = appointmentDAO.getAppointmentsByClientId(client.getIdClient());
+
+        TableView<Appointment> appointmentTableView = new TableView<>();
+        appointmentTableView.setEditable(true);
+
+        TableColumn<Appointment, String> dateColumn = new TableColumn<>("Fecha");
+        dateColumn.setCellValueFactory(cellData -> {
+            LocalDateTime date = cellData.getValue().getDate();
+            return new SimpleStringProperty(date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        });
+
+        dateColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateColumn.setOnEditCommit(event -> {
+            Appointment appointment = event.getRowValue();
+            appointment.setDate(LocalDateTime.parse(event.getNewValue(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            appointmentDAO.updateAppointment(client.getName(), Timestamp.valueOf(appointment.getDate())); // Llamada al método existente
+        });
+
+        appointmentTableView.getColumns().add(dateColumn);
+        appointmentTableView.getItems().addAll(appointments);
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Citas de " + client.getName());
         alert.setHeaderText(null);
-        if (appointments.isEmpty()) {
-            alert.setContentText("Este cliente no tiene citas.");
-        } else {
-            StringBuilder content = new StringBuilder("Citas de " + client.getName() + ":\n\n");
-            for (Appointment appointment : appointments) {
-                content.append("- ").append(appointment.getDate()).append("\n");
-            }
-            alert.setContentText(content.toString());
-        }
+        alert.getDialogPane().setContent(appointmentTableView);
         alert.showAndWait();
     }
+
 
     /**
      * Buscas un cliente por su nombre y muestra sus detalles.
@@ -193,15 +209,6 @@ public class ClientListController extends Controller implements Initializable {
     }
 
     /**
-     * Cambia a la lista de clientes
-     * @throws IOException
-     */
-    @FXML
-    private void switchToClientList() throws IOException {
-        App.setRoot("ClientList");
-    }
-
-    /**
      * Cambiar a la vista de agregar un cliente.
      * @throws IOException
      */
@@ -226,6 +233,15 @@ public class ClientListController extends Controller implements Initializable {
     @FXML
     private void switchToAddDesign() throws IOException {
         App.setRoot("AddDesign");
+    }
+
+    /**
+     * Cambiar a la vista de agregar una cita.
+     * @throws IOException
+     */
+    @FXML
+    private void switchToAddAppointment() throws IOException {
+        App.setRoot("AddAppointment");
     }
 
     /**

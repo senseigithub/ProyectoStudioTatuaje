@@ -1,12 +1,12 @@
 
-o
-java:S3008"TRename this field "_instance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ Åùÿÿÿÿ
-`
+•
+java:S3008"TRename this field "_instance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ ÅùÿÿÿÿJ$fddd9e82-3f0c-4c32-ab54-8c2da84dff7b
+†
 java:S1124
-"EReorder the modifiers to comply with the Java Language Specification.(¬»˜ùÿÿÿÿ
-<
-java:S3010"!Remove this assignment of "conn".(æ‰¢Ùüÿÿÿÿ
-<
-java:S3010"!Remove this assignment of "conn".(€×³›ÿÿÿÿÿ
-R
-java:S1905"7Remove this unnecessary cast to "ConnectionProperties".(ä¼úşÿÿÿÿ
+"EReorder the modifiers to comply with the Java Language Specification.(¬»˜ùÿÿÿÿJ$347f41f0-bc90-45aa-9805-f3a3e869dd3a
+b
+java:S3010"!Remove this assignment of "conn".(æ‰¢ÙüÿÿÿÿJ$dc3634d4-3c95-4e6e-8823-ea0103e181a2
+b
+java:S3010"!Remove this assignment of "conn".(€×³›ÿÿÿÿÿJ$beeb669c-b2cc-4787-bc3f-1e143e9adf3b
+x
+java:S1905"7Remove this unnecessary cast to "ConnectionProperties".(ä¼úşÿÿÿÿJ$9adc7a02-b2ef-47b0-856c-16647f03251b

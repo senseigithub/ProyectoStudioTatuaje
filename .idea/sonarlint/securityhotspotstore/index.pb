@@ -46,3 +46,11 @@ g
 Tsrc/main/java/dam/senseigithub/controller/appointments/AddAppointmentController.java,d\4\d49a7164d895abd10ef4180e789bbe4509d5f7ea
 i
 9src/main/java/dam/senseigithub/controller/Controller.java,7\c\7c6b64296d3526e9ce8f2b398515dbdffd168d94
+m
+=src/main/java/dam/senseigithub/model/dao/IAppointmentDAO.java,c\e\ce79a02caff984c73be3877fbcf3d8f733b40f14
+h
+8src/main/java/dam/senseigithub/model/dao/IClientDAO.java,5\d\5d00f253b951ab72969a417648a9224db8657c49
+h
+8src/main/java/dam/senseigithub/model/dao/IDesignDAO.java,0\6\069b1700c744b18af302184feb81c3ae66702385
+‡
+Wsrc/main/java/dam/senseigithub/controller/appointments/UpdateAppointmentController.java,7\c\7c5e14d9a0a46ea8716f3c18cd03fb42cf3b51ee

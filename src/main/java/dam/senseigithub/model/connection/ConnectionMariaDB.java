@@ -11,6 +11,9 @@ public class ConnectionMariaDB {
     private static ConnectionMariaDB _instance;
     private static Connection conn;
 
+    /**
+     * Containe la configuracion de la base de datos.
+     */
     private ConnectionMariaDB(){
         ConnectionProperties properties = (ConnectionProperties) XMLManager.readXML(new ConnectionProperties(),FILE);
 
@@ -22,6 +25,10 @@ public class ConnectionMariaDB {
         }
     }
 
+    /**
+     * Hace una instacia de la coneccion.
+     * @return
+     */
     public static Connection getConnection(){
         if(_instance==null){
             _instance = new ConnectionMariaDB();
@@ -29,6 +36,9 @@ public class ConnectionMariaDB {
         return conn;
     }
 
+    /**
+     * Cierra la coneccion.
+     */
     public static void closeConnection(){
         if(conn!=null){
             try {

@@ -15,6 +15,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -100,6 +104,8 @@ public class MainController implements Initializable {
                 imageView.setOnMouseClicked(event -> {
                     if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
                         handleDoubleClick(design);
+                    } else if (event.getButton() == MouseButton.SECONDARY) {
+                        handleRightClick(design, imageView);
                     }
                 });
 
@@ -165,6 +171,29 @@ public class MainController implements Initializable {
                 }
             }
         });
+    }
+
+    /**
+     * Hago clic derecho y cambia el diseño según el usuario.
+     * @param design recibe el diseño a cambiar.
+     * @param imageView
+     */
+    private void handleRightClick(Design design, ImageView imageView) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg")
+        );
+        File selectedFile = fileChooser.showOpenDialog(imageView.getScene().getWindow());
+
+        if (selectedFile != null) {
+            try (FileInputStream fis = new FileInputStream(selectedFile)) {
+                design.setImageInputStream(fis);
+                designDAO.updateDesign(design);
+                refreshDesignList();
+            } catch (IOException | SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

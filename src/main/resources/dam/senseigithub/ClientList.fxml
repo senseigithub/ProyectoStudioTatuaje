@@ -30,7 +30,6 @@
                         </ImageView>
                         <SplitMenuButton mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Clientes" translateX="80.0">
                             <items>
-                                <MenuItem mnemonicParsing="false" onAction="#switchToClientList" text="Lista de clientes" />
                                 <MenuItem mnemonicParsing="false" onAction="#switchToAddUser" text="Añadir cliente" />
                                 <MenuItem mnemonicParsing="false" onAction="#switchToDeleteClient" text="Borrar cliente" />
                             </items>
@@ -48,10 +47,7 @@
                         </SplitMenuButton>
                         <SplitMenuButton layoutX="240.0" layoutY="41.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: black;" text="Citas" translateX="120.0">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Calendario de citas" />
-                                <MenuItem mnemonicParsing="false" text="Añadir cita" />
-                                <MenuItem mnemonicParsing="false" text="Borrar cita" />
-                                <MenuItem mnemonicParsing="false" text="Modificar cita" />
+                                <MenuItem mnemonicParsing="false" onAction="#switchToAddAppointment" text="Añadir cita" />
                             </items>
                             <font>
                                 <Font name="Cambria" size="16.0" />

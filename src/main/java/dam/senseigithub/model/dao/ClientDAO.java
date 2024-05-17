@@ -10,12 +10,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientDAO {
+public class ClientDAO implements IClientDAO {
     private final static String INSERT = "INSERT INTO cliente (Dnie, Nombre, Email, Telefono) VALUES (?, ?, ?, ?)";
     private final static String UPDATE = "UPDATE cliente SET Dnie=?, Nombre=?, Email=?, Telefono=? WHERE Dnie=?";
     private final static String FINDALL = "SELECT * FROM cliente";
-    private static final String SELECT_BY_NAME = "SELECT * FROM cliente WHERE Nombre = ?";
-    private final static String FINDBYID = "SELECT * FROM cliente WHERE Id_Cliente=?";
+    private static final String FINDBYNAME = "SELECT * FROM cliente WHERE Nombre = ?";
     private final static String DELETE = "DELETE FROM cliente WHERE Dnie=? AND Nombre=?";
 
     /**
@@ -49,7 +48,7 @@ public class ClientDAO {
      */
     public Client getClientByName(String name) {
         Client client = null;
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_BY_NAME)) {
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDBYNAME)) {
             pst.setString(1, name);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
@@ -98,30 +97,6 @@ public class ClientDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Busca el cliente en la base de datos.
-     * @param id el parametro a introducir es el id del cliente.
-     * @return devuelve el cliente al que has introducido el id.
-     */
-    public Client findById(int id) {
-        Client client = null;
-        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDBYID)) {
-            pst.setInt(1, id);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                client = new Client();
-                client.setIdClient(rs.getInt("Id_Cliente"));
-                client.setDnie(rs.getString("Dnie"));
-                client.setName(rs.getString("Nombre"));
-                client.setEmail(rs.getString("Email"));
-                client.setPhone(rs.getString("Telefono"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return client;
     }
 
 

@@ -1,26 +1,14 @@
 
-i
-java:S1192:"GDefine a constant instead of duplicating this literal "Nombre" 3 times.(ìñ¾€ùÿÿÿÿ8¸ùÁ¸÷1
-b
-java:S1192<"FDefine a constant instead of duplicating this literal "Email" 3 times.(ß–Û#8¸ùÁ¸÷1
-k
-java:S1192="IDefine a constant instead of duplicating this literal "Telefono" 3 times.(×ÿ×ðûÿÿÿÿ8¹ùÁ¸÷1
-h
-java:S11929"KDefine a constant instead of duplicating this literal "Id_Cliente" 3 times.(î†šÿ8¹ùÁ¸÷1
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ýâ±8ÔùÁ¸÷1
+ˆ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ýâ±8ÔùÁ¸÷1J$92196b4c-a3c9-4e74-b3d4-5a01b22f45e6
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÒÝœÕùÿÿÿÿ8ÕùÁ¸÷1J$b200c9f3-03e5-4bf7-a451-b33053f09e58
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷–¦—ûÿÿÿÿ8ÕùÁ¸÷1J$fbb84ac4-43e7-4bd4-8b4c-5647990d510d
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(××±Óþÿÿÿÿ8ÕùÁ¸÷1J$a75c56e5-6304-4d2e-9d4f-b117e81f808e
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÒÝœÕùÿÿÿÿ8ÕùÁ¸÷1
+java:S6905"Don't use the query "SELECT *".(¹¨Ö–ýÿÿÿÿ8ÙùÁ¸÷1J$b7310711-e117-440c-8df4-2e6e55ac4b2c
+r	java:S106`"+Replace this use of System.out by a logger.(ÊÚ«øÿÿÿÿ8ßùÁ¸÷1J$d6d91692-e1ce-440e-84fa-673c79e987ab
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(÷–¦—ûÿÿÿÿ8ÕùÁ¸÷1
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¶¼¼ìúÿÿÿÿ8ÕùÁ¸÷1
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(××±Óþÿÿÿÿ8ÕùÁ¸÷1
-A
-java:S6905"Don't use the query "SELECT *".(·°ìÆþÿÿÿÿ8ÙùÁ¸÷1
-L	java:S106a"+Replace this use of System.out by a logger.(ÊÚ«øÿÿÿÿ8ßùÁ¸÷1
-A
-java:S6905"Don't use the query "SELECT *".(¶¼¼ìúÿÿÿÿ8ßùÁ¸÷1
-A
-java:S6905"Don't use the query "SELECT *".(÷–¦—ûÿÿÿÿ8âùÁ¸÷1
+java:S6905"Don't use the query "SELECT *".(÷–¦—ûÿÿÿÿ8âùÁ¸÷1J$773afcfe-bfcd-45b2-b961-57878296354c

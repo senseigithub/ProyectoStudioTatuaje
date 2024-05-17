@@ -12,8 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DesignDAO {
+public class DesignDAO implements IDesignDAO {
     private final static String INSERT = "INSERT INTO diseno (Id_Cliente, Nombre, Tamano, Imagen) VALUES ((SELECT Id_Cliente FROM cliente WHERE Nombre = ?), ?, ?, ?)";
+    private final static String UPDATE = "UPDATE diseno SET Imagen = ? WHERE Id_Diseno = ?";
     private final static String DELETE = "DELETE FROM diseno WHERE Nombre=?";
     private final static String SELECT_ALL = "SELECT * FROM diseno";
 
@@ -32,6 +33,20 @@ public class DesignDAO {
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Actualiza el diseño en la base de datos.
+     * @param design recibe el diseño a actualizar.
+     * @throws SQLException lanza la excepción.
+     */
+    public void updateDesign(Design design) throws SQLException {
+        if (design == null || design.getImageInputStream() == null) return;
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
+            pst.setBinaryStream(1, design.getImageInputStream());
+            pst.setInt(2, design.getIdDesign());
+            pst.executeUpdate();
         }
     }
 

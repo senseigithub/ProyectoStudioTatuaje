@@ -8,10 +8,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppointmentDAO {
+public class AppointmentDAO implements IAppointmentDAO {
     private final static String INSERT = "INSERT INTO cita (Id_Cliente, Fecha) VALUES ((SELECT Id_Cliente FROM cliente WHERE Nombre = ?), ?)";
     private static final String DELETE_BY_NAME = "DELETE FROM cita WHERE Id_Cliente = (SELECT Id_Cliente FROM cliente WHERE Nombre = ?)";
     private static final String SELECT_BY_CLIENT_ID = "SELECT * FROM Cita WHERE Id_Cliente = ?";
+    private static final String UPDATE = "UPDATE cita SET Fecha = ? WHERE Id_Cliente = (SELECT Id_Cliente FROM cliente WHERE Nombre = ?)";
 
     /**
      * Añade una cita a la base de datos.
@@ -22,6 +23,21 @@ public class AppointmentDAO {
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT)) {
             pst.setString(1, client.getName());
             pst.setString(2, appointment.getDate().toString());
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Actualiza la fecha de una cita para un cliente dado.
+     * @param clientName recibe el nombre del cliente.
+     * @param newDate recibe la nueva fecha de la cita.
+     */
+    public void updateAppointment(String clientName, Timestamp newDate) {
+        try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
+            pst.setTimestamp(1, newDate);
+            pst.setString(2, clientName);
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
