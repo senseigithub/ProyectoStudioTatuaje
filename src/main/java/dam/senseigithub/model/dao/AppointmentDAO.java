@@ -60,6 +60,7 @@ public class AppointmentDAO implements IAppointmentDAO {
         }
     }
 
+    //Esto es un eager, porque lo traigo de la base de datos.
     /**
      * Recoge las citas de un cliente por su id.
      * @param clientId recibe el id del cliente.
@@ -85,4 +86,17 @@ public class AppointmentDAO implements IAppointmentDAO {
         return appointments;
     }
 
+    public static AppointmentDAO build(){
+        return new AppointmentDAO();
+    }
+}
+class ClientLazy extends Client {
+
+    @Override
+    public List<Appointment> getAppointments() {
+        if(super.getAppointments()==null){
+            setAppointments(AppointmentDAO.build().getAppointmentsByClientId(getIdClient()));
+        }
+        return super.getAppointments();
+    }
 }
