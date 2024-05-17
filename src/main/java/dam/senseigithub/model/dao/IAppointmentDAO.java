@@ -3,6 +3,7 @@ package dam.senseigithub.model.dao;
 import dam.senseigithub.model.entity.Appointment;
 import dam.senseigithub.model.entity.Client;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface IAppointmentDAO {
@@ -12,5 +13,7 @@ public interface IAppointmentDAO {
     public void deleteAllAppointmentsByClientName(String clientName);
 
     public List<Appointment> getAppointmentsByClientId(int clientId);
+
+    public void updateAppointment(String clientName, Timestamp newDate);
 
 }

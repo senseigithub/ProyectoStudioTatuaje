@@ -13,14 +13,16 @@ import java.util.List;
 public class ClientDAO implements IClientDAO {
     private final static String INSERT = "INSERT INTO cliente (Dnie, Nombre, Email, Telefono) VALUES (?, ?, ?, ?)";
     private final static String UPDATE = "UPDATE cliente SET Dnie=?, Nombre=?, Email=?, Telefono=? WHERE Dnie=?";
-    private final static String FINDALL = "SELECT * FROM cliente";
     private static final String FINDBYNAME = "SELECT * FROM cliente WHERE Nombre = ?";
+    private static final String FINDALL = "SELECT * FROM cliente";
     private final static String DELETE = "DELETE FROM cliente WHERE Dnie=? AND Nombre=?";
 
     /**
      * Este metodo añade un nuevo cliente a la Base de datos.
+     *
      * @param client recibe el cliente que se quiere añadir.
      */
+    @Override
     public void addClient(Client client) {
         if (client == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
@@ -43,9 +45,11 @@ public class ClientDAO implements IClientDAO {
 
     /**
      * Te devuelve un cliente a partir de su nombre.
+     *
      * @param name el parametro a introducir es el nombre del cliente.
      * @return devuelve el cliente del que has introducido el nombre.
      */
+    @Override
     public Client getClientByName(String name) {
         Client client = null;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDBYNAME)) {
@@ -67,8 +71,10 @@ public class ClientDAO implements IClientDAO {
 
     /**
      * Actualiza un cliente de la Base de datos.
+     *
      * @param client recibe el cliente que quieres actualizar.
      */
+    @Override
     public void updateClient(Client client) {
         if (client == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
@@ -85,8 +91,10 @@ public class ClientDAO implements IClientDAO {
 
     /**
      * Borra un cliente de la Base de datos.
+     *
      * @param client recibe el cliente que quieres borrar.
      */
+    @Override
     public void deleteClient(Client client) {
         if (client == null || client.getDnie() == null || client.getName() == null) return;
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE)) {
@@ -99,12 +107,12 @@ public class ClientDAO implements IClientDAO {
         }
     }
 
-
-    //Este es LAZY, porque me he traido cosas de una por una, cuando las necesito.
     /**
      * Devuelve todos los clientes de la Base de datos.
+     *
      * @return Los devuelve.
      */
+    @Override
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<>();
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(FINDALL)) {

@@ -19,6 +19,7 @@ public class AppointmentDAO implements IAppointmentDAO {
      * @param client recibe el cliente al que le quieres añadir la cita.
      * @param appointment recibe la fecha de la cita.
      */
+    @Override
     public void addAppointment(Client client, Appointment appointment) {
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(INSERT)) {
             pst.setString(1, client.getName());
@@ -34,6 +35,7 @@ public class AppointmentDAO implements IAppointmentDAO {
      * @param clientName recibe el nombre del cliente.
      * @param newDate recibe la nueva fecha de la cita.
      */
+    @Override
     public void updateAppointment(String clientName, Timestamp newDate) {
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(UPDATE)) {
             pst.setTimestamp(1, newDate);
@@ -48,6 +50,7 @@ public class AppointmentDAO implements IAppointmentDAO {
      * Borra las citas utilizando el nombre del cliente.
      * @param clientName recibe el nombre del cliente.
      */
+    @Override
     public void deleteAllAppointmentsByClientName(String clientName) {
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(DELETE_BY_NAME)) {
             pst.setString(1, clientName);
@@ -62,6 +65,7 @@ public class AppointmentDAO implements IAppointmentDAO {
      * @param clientId recibe el id del cliente.
      * @return Devuelve una lista de citas.
      */
+    @Override
     public List<Appointment> getAppointmentsByClientId(int clientId) {
         List<Appointment> appointments = new ArrayList<>();
         try (PreparedStatement pst = ConnectionMariaDB.getConnection().prepareStatement(SELECT_BY_CLIENT_ID)) {
