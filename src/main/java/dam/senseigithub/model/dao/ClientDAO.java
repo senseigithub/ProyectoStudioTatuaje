@@ -109,7 +109,7 @@ public class ClientDAO implements IClientDAO {
 
     /**
      * Devuelve todos los clientes de la Base de datos.
-     *
+     * Esto es un eager.
      * @return Los devuelve.
      */
     @Override

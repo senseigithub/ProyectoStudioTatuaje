@@ -89,7 +89,6 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageGridPane.setHgap(120);
         imageGridPane.setVgap(50);
-
         try {
             List<Design> designs = designDAO.getAllDesigns();
             int column = 0;
@@ -108,7 +107,6 @@ public class MainController implements Initializable {
                         handleRightClick(design, imageView);
                     }
                 });
-
                 column++;
                 if (column == 3) {
                     column = 0;

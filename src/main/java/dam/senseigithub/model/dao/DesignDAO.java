@@ -77,8 +77,6 @@ public class DesignDAO implements IDesignDAO {
                 String name = rs.getString("Nombre");
                 float size = rs.getFloat("Tamano");
                 byte[] imageData = rs.getBytes("Imagen");
-
-                // Crear una instancia de Design con los datos recuperados de la base de datos
                 Design design = new Design();
                 design.setIdDesign(id);
                 design.setName(name);

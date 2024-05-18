@@ -90,6 +90,7 @@ public class AppointmentDAO implements IAppointmentDAO {
         return new AppointmentDAO();
     }
 }
+
 class ClientLazy extends Client {
 
     @Override
